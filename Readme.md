@@ -31,7 +31,7 @@ This project shows how to:
 ```bash
 eksctl create cluster --name my-cluster --region us-west-2
 ```
-
+![alt text](image.png)
 ---
 
 ## 🔹 Step 2: Deploy the Application
@@ -41,7 +41,7 @@ Apply your deployment:
 ```bash
 kubectl apply -f deployment.yaml
 ```
-
+![alt text](image-1.png)
 ---
 
 ## 🔹 Step 3: Expose Deployment as LoadBalancer
@@ -55,13 +55,14 @@ Get the service and copy the `EXTERNAL-IP`:
 ```bash
 kubectl get svc mywebd-svc
 ```
+![alt text](image-2.png)
 
 Open in browser or use curl:
 
 ```
 http://<EXTERNAL-IP>
 ```
-
+![alt text](image-3.png)
 ---
 
 ## 🔹 Step 4: Install Metrics Server (for HPA)
@@ -69,18 +70,21 @@ http://<EXTERNAL-IP>
 ```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
+![alt text](image-4.png)
 
 Check if metrics-server pod is running:
 
 ```bash
 kubectl get pods -n kube-system
 ```
+![alt text](image-5.png)
 
 Test metrics availability:
 
 ```bash
 kubectl top pods
 ```
+![alt text](image-6.png)
 
 ---
 
@@ -95,13 +99,14 @@ Check HPA:
 ```bash
 kubectl get hpa
 ```
+![alt text](image-7.png)
 
 Watch live scaling:
 
 ```bash
 kubectl get hpa -w
 ```
-
+![alt text](image-11.png)
 ---
 
 ## 🔹 Step 6: Generate Load (in Separate Terminal 1)
@@ -115,9 +120,19 @@ Then inside the pod:
 ```sh
 while true; do wget -q -O- http://<EXTERNAL-IP>; done
 ```
+![alt text](image-9.png)
 
 > Replace `<EXTERNAL-IP>` with your actual LoadBalancer IP.
 
+
+## Watch live scaling:
+
+```bash
+kubectl get hpa -w
+```
+![alt text](image-8.png)
+
+![alt text](image-10.png)
 ---
 
 ## ✅ Expected Behavior
