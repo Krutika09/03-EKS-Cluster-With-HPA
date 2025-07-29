@@ -25,17 +25,6 @@ This project shows how to:
 ---
 
 
-This guide shows how to:
-
-* Create an EKS cluster
-* Deploy an app
-* Expose it using a LoadBalancer
-* Set up Horizontal Pod Autoscaler (HPA)
-* Generate traffic to trigger scaling
-
----
-
-
 
 ## 🔹 Step 1: Create EKS Cluster
 
