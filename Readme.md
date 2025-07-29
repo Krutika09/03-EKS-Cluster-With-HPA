@@ -31,7 +31,8 @@ This project shows how to:
 ```bash
 eksctl create cluster --name my-cluster --region us-west-2
 ```
-![alt text](image.png)
+<img width="1345" height="596" alt="image" src="https://github.com/user-attachments/assets/0223b038-9293-42c7-8f5b-d69c448e1b9b" />
+
 ---
 
 ## 🔹 Step 2: Deploy the Application
@@ -41,7 +42,8 @@ Apply your deployment:
 ```bash
 kubectl apply -f deployment.yaml
 ```
-![alt text](image-1.png)
+<img width="642" height="140" alt="image" src="https://github.com/user-attachments/assets/bcfe824f-c867-48f7-9231-f18c5754e1ee" />
+
 ---
 
 ## 🔹 Step 3: Expose Deployment as LoadBalancer
@@ -55,14 +57,16 @@ Get the service and copy the `EXTERNAL-IP`:
 ```bash
 kubectl get svc mywebd-svc
 ```
-![alt text](image-2.png)
+<img width="1267" height="95" alt="image" src="https://github.com/user-attachments/assets/2783ba34-9c31-420f-bcbf-483564252d11" />
+
 
 Open in browser or use curl:
 
 ```
 http://<EXTERNAL-IP>
 ```
-![alt text](image-3.png)
+<img width="936" height="390" alt="image" src="https://github.com/user-attachments/assets/819e68d8-81ce-4f45-bd61-dc1cc6b896eb" />
+
 ---
 
 ## 🔹 Step 4: Install Metrics Server (for HPA)
@@ -70,21 +74,24 @@ http://<EXTERNAL-IP>
 ```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
-![alt text](image-4.png)
+<img width="1273" height="154" alt="image" src="https://github.com/user-attachments/assets/a6ba96a0-b9e9-4393-90b3-8a3c087d2938" />
+
 
 Check if metrics-server pod is running:
 
 ```bash
 kubectl get pods -n kube-system
 ```
-![alt text](image-5.png)
+<img width="736" height="141" alt="image" src="https://github.com/user-attachments/assets/ad8a20da-097b-4ac1-83ff-377d35dcd708" />
+
 
 Test metrics availability:
 
 ```bash
 kubectl top pods
 ```
-![alt text](image-6.png)
+<img width="652" height="48" alt="image" src="https://github.com/user-attachments/assets/08c5f098-d5cd-497b-b19a-8dfc7ce1b134" />
+
 
 ---
 
@@ -99,14 +106,16 @@ Check HPA:
 ```bash
 kubectl get hpa
 ```
-![alt text](image-7.png)
+<img width="1246" height="106" alt="image" src="https://github.com/user-attachments/assets/46abcc59-290c-4036-b7f0-2c71fb4b8d83" />
+
 
 Watch live scaling:
 
 ```bash
 kubectl get hpa -w
 ```
-![alt text](image-11.png)
+<img width="757" height="274" alt="image" src="https://github.com/user-attachments/assets/8a06e370-33d6-4208-8572-2df4bc5f2951" />
+
 ---
 
 ## 🔹 Step 6: Generate Load (in Separate Terminal 1)
@@ -120,7 +129,7 @@ Then inside the pod:
 ```sh
 while true; do wget -q -O- http://<EXTERNAL-IP>; done
 ```
-![alt text](image-9.png)
+<img width="639" height="546" alt="image" src="https://github.com/user-attachments/assets/1afefc3d-515e-4826-92cf-531f93fb64dd" />
 
 > Replace `<EXTERNAL-IP>` with your actual LoadBalancer IP.
 
@@ -130,9 +139,10 @@ while true; do wget -q -O- http://<EXTERNAL-IP>; done
 ```bash
 kubectl get hpa -w
 ```
-![alt text](image-8.png)
+<img width="877" height="247" alt="image" src="https://github.com/user-attachments/assets/ec894e32-0dd0-4e38-b52f-f4efb1039a7c" />
 
-![alt text](image-10.png)
+
+<img width="700" height="287" alt="image" src="https://github.com/user-attachments/assets/a6fce0d2-6a02-458c-bf2a-859e4cb540e2" />
 ---
 
 ## ✅ Expected Behavior
